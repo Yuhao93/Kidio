@@ -1,4 +1,4 @@
-<body>
+<body class="white-bg-body">
 <nav class="navbar-default navbar-static-top" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -21,14 +21,23 @@
 	</div>
 </nav>
 
-<div class="container" style="padding:40px 40px 40px 40px;margin-top:80px;background-color:white">
+
+<div class="jumbotron" style="background-image: url('/images/common/kidio_bg.jpg');background-position: center center;background-size:cover;padding:100px 0px;position:relative;color:white">
+	<div style="position:absolute;top:0px;left:0px;right:0px;bottom:0px;background-color:black;opacity:.5;z-index:1"></div>
+	<h1 style="position:relative;text-align:center;z-index:10">Kidio Blog</h1>
+	<h4 style="position:relative;text-align:center;z-index:10">The latest news about Kidio</h4>
+</div>
+
+<div class="container" style="padding:40px 40px 40px 40px;margin-top:80px">
 	<div class="row">
 		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 			<article>
-				<p><a href="/blog">&larr; back to the blog</a></p>
-				<hr>
+				<p><a class="blog-link" href="/blog">&larr; back to the blog</a></p>
 				<header>
 					<h1>{{data.post.title}}</h1>
+					<hr style="margin: 5px 0px">
+					Posted {{date publishedDate format='MMM Do YYYY'}}
+					<hr style="margin: 5px 0px">
 					<h5>
 						{{{categoryList data.post.categories prefix="Posted in "}}}
 						{{#if author.name.first}}by {{author.name.first}}{{/if}}
