@@ -1,0 +1,80 @@
+<body style="background-image: url('/images/common/kidio_bg_2.jpg');background-size:cover;">
+<div style="position:fixed;top:0px;left:0px;right:0px;bottom:0px;background-color:black;opacity:.5;z-index:-10"></div>
+
+<nav class="navbar-default navbar-static-top" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/views/viewer">Kidio</a>
+		</div>
+
+		<div class="collapse navbar-collapse" id="nav-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/about">About</a></li>
+				<li class="active"><a href="/contact">Contact</a></li>
+				<li><a href="/blog">News</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container" style="background-color:white;padding:0px 40px 40px 40px;margin-top:80px;border-radius:5px;box-shadow: 3px 3px 7px #222">
+	<h1>Contact Us</h1>
+	<div class="row">
+		<div class="col-sm-8 col-md-6">
+			{{#if enquirySubmitted}}
+			<h3>Thanks for getting in touch.</h3>
+			{{else}}
+			<form method="post">
+				<input type="hidden" name="action" value="contact">
+				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
+					<label>Name</label>
+					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+				</div>
+				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+					<label>Email</label>
+					<input type="email" name="email" class="form-control" value="{{formData.email}}">
+				</div>
+				<div class="form-group">
+					<label>Phone</label>
+					<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
+				</div>
+				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
+					<label>What are you contacting us about?</label>
+					<select name="enquiryType" class="form-control">
+						<option value="">(select one)</option>
+						{{#each enquiryTypes}}
+						<option value="{{value}}">{{label}}</option>
+						{{/each}}
+					</select>
+				</div>
+				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+					<label>Message</label>
+					<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>
+				</div>
+				<div class="form-actions">
+					<button type="submit" class="btn btn-primary">Send</button>
+				</div>
+			</form>
+			{{/if}}
+		</div>
+		<div class="col-sm-4 col-md-6" style="text-align:center;margin-top:100px;">
+			<p>Let us know if you need anything!</p>
+			<br>
+			<p style="font-weight:bold;margin:0px">Physical Address</p>
+			<p style="font-weight:bold;margin:0px">123 Some Avenue Road</p>
+			<p style="font-weight:bold;margin:0px">Somewhere, CA 11111</p>
+			<p style="font-weight:bold;margin:0px">United States</p>
+		</div>
+	</div>
+</div>
+
+<script src="/js/lib/jquery/jquery-1.11.1.min.js"></script>
+<script src="/js/lib/bootstrap/bootstrap-3.2.0.min.js"></script>
+{{{isAdminEditorJS user}}}
+</body>
