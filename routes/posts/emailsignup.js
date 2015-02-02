@@ -1,7 +1,7 @@
 var MailChimpAPI = require('mailchimp').MailChimpAPI;
 
-var apiKey = '3bf51e34c186f014629dc7a3e9f1e47a-us10';
-var listId = 'ebb842832f';
+var apiKey = process.env.MAILCHIMP_API;
+var listId = process.env.MAILCHIMP_LIST_ID;
 var api = new MailChimpAPI(apiKey, { version : '1.3' });
 
 exports = module.exports = function(req, res) {
